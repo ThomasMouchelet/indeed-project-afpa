@@ -26,6 +26,7 @@ class OfferController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/offers/{id}", name="offers.show")
      */
