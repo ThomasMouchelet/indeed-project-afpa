@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Admin Page</h1>
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Offers list</h2>
+				<ul>
+					{% for offer in offerList %}
+						<li>
+							<a href="{{path('admin.offers.update', {id: offer.id})}}">
+								{{ offer.title }}
+								|
+																																																createdAt :
+								{{ offer.createdAt | date("d/m/Y - h:m:s") }}
+								|
+																																																updatedAt :
+								{{ offer.updatedAt | date("d/m/Y - h:m:s") }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<h2>Contracts list</h2>
+				<ul>
+					{% for contract in contractList %}
+						<li>
+							<a href="{{path('admin.contracts.update', {id: contract.id})}}">
+								{{ contract.name }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<h2>ContractsType list</h2>
+				<ul>
+					{% for contractType in contractTypeList %}
+						<li>
+							<a href="{{path('admin.contractTypes.update', {id: contractType.id})}}">
+								{{ contractType.name }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}
