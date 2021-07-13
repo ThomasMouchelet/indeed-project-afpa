@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Contract;
 use App\Entity\ContractType;
 use App\Entity\Offer;
-use App\Form\ContractFromType;
+use App\Form\ContractFormType;
 use App\Form\ContractTypeFormType;
 use App\Form\OfferFormType;
 use App\Repository\ContractRepository;
@@ -48,7 +48,7 @@ class AdminController extends AbstractController
             $editMode = true;
         }
 
-        $form = $this->createForm(ContractFromType::class, $contract);
+        $form = $this->createForm(ContractFormType::class, $contract);
 
         $form->handleRequest($request);
 
